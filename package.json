@@ -1,0 +1,70 @@
+{
+  "name": "youtube-downloader-pro",
+  "version": "2.0.0",
+  "description": "YouTube Video, Audio & Bulk Downloader Pro for Windows",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev:vite": "vite",
+    "dev:electron": "wait-on http://localhost:5173 && cross-env NODE_ENV=development electron .",
+    "dev": "concurrently -k \"npm run dev:vite\" \"npm run dev:electron\"",
+    "build:vite": "vite build",
+    "build:electron": "electron-builder --win --x64",
+    "build": "npm run build:vite && npm run build:electron",
+    "start": "electron ."
+  },
+  "build": {
+    "appId": "com.youtube.downloader.pro",
+    "productName": "YouTube Downloader Pro",
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowElevation": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "YouTube Downloader Pro"
+    },
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ]
+  },
+  "keywords": [
+    "youtube",
+    "downloader",
+    "electron",
+    "desktop",
+    "video",
+    "audio",
+    "playlist"
+  ],
+  "author": "Antigravity",
+  "license": "MIT",
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.16.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwind-merge": "^3.0.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.9",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.12",
+    "tailwindcss": "^4.0.9",
+    "vite": "^6.2.0",
+    "wait-on": "^8.0.2"
+  }
+}

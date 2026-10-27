@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Production builds & Binaries (Released via GitHub Releases)
+dist/
+dist-electron/
+release/
+*.exe
+*.blockmap
+
+# Caches & Local runtime data
+.cache/
+downloads_history.db
+settings.json
+test_dummy*
+test_out/
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Operating System files
+Thumbs.db
+.DS_Store
